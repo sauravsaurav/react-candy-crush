@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <title>React App</title>
+    <style>
+body {
+height: 100vh;
+overflow: hidden;
+opacity: 1;
+background-color: black;
+display: -webkit-box;
+display: flex;
+}
+
+/* Here using -webkit, we make angle
+of 45 degree of falling star */
+.sky {
+width: 100%;
+height: 100%;
+-webkit-transform: rotateZ(45deg);
+transform: rotateZ(45deg);
+z-index: 99999;
+position: absolute;
+top: -40%;
+left: -44%;
+}
+
+/* Here we are making roundabout balls */
+.star {
+position: absolute;
+left: 10%;
+top: 0%;
+height: 2px;
+border-radius: 885px;
+background: linear-gradient(-45deg,
+	#eef0f5, rgba(0, 0, 255, 0));
+
+-webkit-filter: drop-shadow(0 0 6px #eef1f8);
+filter: drop-shadow(0 0 6px #d7dff0);
+-webkit-animation: tail 3000ms ease-in-out infinite,
+	shooting 3000ms ease-in-out infinite;
+animation: tail 3000ms ease-in-out infinite,
+	shooting 3000ms ease-in-out infinite;
+}
+
+/* Here we add before and after effect to star */
+.star::before,
+.star::after {
+content: "";
+position: absolute;
+top: calc(50% - 1px);
+right: 0;
+height: 2px;
+background: linear-gradient(
+	-45deg,
+	rgba(0, 0, 255, 0),
+	#eaeef8,
+	rgba(0, 0, 255, 0)
+);
+-webkit-transform: translateX(50%) rotateZ(45deg);
+transform: translateX(50%) rotateZ(45deg);
+border-radius: 100%;
+-webkit-animation: shining 3000ms ease-in-out infinite;
+animation: shining 3000ms ease-in-out infinite;
+}
+.star::after {
+-webkit-transform: translateX(50%) rotateZ(-45deg);
+transform: translateX(50%) rotateZ(-45deg);
+}
+
+/* Here we are adding location of each
+nth-child, animations, delays, and
+before and after effects to each
+and every balls(stars) */
+.star:nth-child(1) {
+top: calc(50% - -119px);
+left: calc(50% - 43px);
+-webkit-animation-delay: 4000ms;
+animation-delay: 4000ms;
+}
+.star:nth-child(1)::before,
+.star:nth-child(1)::after {
+-webkit-animation-delay: 4000ms;
+animation-delay: 4000ms;
+}
+.star:nth-child(2) {
+top: calc(50% - -43px);
+left: calc(50% - 37px);
+-webkit-animation-delay: 5000ms;
+animation-delay: 5000ms;
+}
+.star:nth-child(2)::before,
+.star:nth-child(2)::after {
+-webkit-animation-delay: 5000ms;
+animation-delay: 5000ms;
+}
+.star:nth-child(3) {
+top: calc(50% - -40px);
+left: calc(50% - 222px);
+-webkit-animation-delay: 7000ms;
+animation-delay: 7000ms;
+}
+.star:nth-child(3)::before,
+.star:nth-child(3)::after {
+-webkit-animation-delay: 7000ms;
+animation-delay: 7000ms;
+}
+.star:nth-child(4) {
+top: calc(50% - -29px);
+left: calc(50% - 113px);
+-webkit-animation-delay: 7000ms;
+animation-delay: 7000ms;
+}
+.star:nth-child(4)::before,
+.star:nth-child(4)::after {
+-webkit-animation-delay: 7000ms;
+animation-delay: 7000ms;
+}
+.star:nth-child(5) {
+top: calc(50% - 146px);
+left: calc(50% - 112px);
+-webkit-animation-delay: 3000ms;
+animation-delay: 3000ms;
+}
+.star:nth-child(5)::before,
+.star:nth-child(5)::after {
+-webkit-animation-delay: 3000ms;
+animation-delay: 3000ms;
+}
+.star:nth-child(6) {
+top: calc(50% - -108px);
+left: calc(50% - 160px);
+-webkit-animation-delay: 3000ms;
+animation-delay: 3000ms;
+}
+.star:nth-child(6)::before,
+.star:nth-child(6)::after {
+-webkit-animation-delay: 3000ms;
+animation-delay: 3000ms;
+}
+.star:nth-child(7) {
+top: calc(50% - 52px);
+left: calc(50% - 72px);
+-webkit-animation-delay: 7000ms;
+animation-delay: 7000ms;
+}
+.star:nth-child(7)::before,
+.star:nth-child(7)::after {
+-webkit-animation-delay: 7000ms;
+animation-delay: 7000ms;
+}
+
+/* This code will help to generate
+effect in tail of star */
+@keyframes tail {
+0% {
+	width: 0;
+}
+30% {
+	width: 100px;
+}
+100% {
+	width: 0;
+}
+}
+
+/* This code will generate shining
+effect in head of star */
+@keyframes shining {
+0% {
+	width: 0;
+}
+50% {
+	width: 30px;
+}
+100% {
+	width: 0;
+}
+}
+
+/* Here we are adding webkit-animation
+to head of star for shining */
+@-webkit-keyframes shining {
+0% {
+	width: 0;
+}
+50% {
+	width: 30px;
+}
+100% {
+	width: 0;
+}
+}
+
+/* Here we are adding webkit-animation
+to tail of star */
+@-webkit-keyframes tail {
+0% {
+	width: 0;
+}
+30% {
+	width: 100px;
+}
+100% {
+	width: 0;
+}
+}
+
+/* Here we are adding webkit-animation
+for shooting effect */
+@-webkit-keyframes shooting {
+0% {
+	-webkit-transform: translateX(0);
+	transform: translateX(0);
+}
+100% {
+	-webkit-transform: translateX(270px);
+	transform: translateX(270px);
+}
+}
+
+/* Here we make shooting effect */
+@keyframes shooting {
+0% {
+	-webkit-transform: translateX(0);
+	transform: translateX(0);
+}
+100% {
+	-webkit-transform: translateX(270px);
+	transform: translateX(270px);
+}
+}
+
+#background-wrap {
+    bottom: 0;
+	left: 0;
+	padding-top: 50px;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 999999;
+}
+
+/* KEYFRAMES */
+
+@-webkit-keyframes animateCloud {
+    0% {
+        margin-left: -1000px;
+    }
+    100% {
+        margin-left: 100%;
+    }
+}
+
+@-moz-keyframes animateCloud {
+    0% {
+        margin-left: -1000px;
+    }
+    100% {
+        margin-left: 100%;
+    }
+}
+
+@keyframes animateCloud {
+    0% {
+        margin-left: -1000px;
+    }
+    100% {
+        margin-left: 100%;
+    }
+}
+
+/* ANIMATIONS */
+
+.x1 {
+	-webkit-animation: animateCloud 35s linear infinite;
+	-moz-animation: animateCloud 35s linear infinite;
+	animation: animateCloud 35s linear infinite;
+	
+	-webkit-transform: scale(0.65);
+	-moz-transform: scale(0.65);
+	transform: scale(0.65);
+}
+
+.x2 {
+	-webkit-animation: animateCloud 20s linear infinite;
+	-moz-animation: animateCloud 20s linear infinite;
+	animation: animateCloud 20s linear infinite;
+	
+	-webkit-transform: scale(0.3);
+	-moz-transform: scale(0.3);
+	transform: scale(0.3);
+}
+
+.x3 {
+	-webkit-animation: animateCloud 30s linear infinite;
+	-moz-animation: animateCloud 30s linear infinite;
+	animation: animateCloud 30s linear infinite;
+	
+	-webkit-transform: scale(0.5);
+	-moz-transform: scale(0.5);
+	transform: scale(0.5);
+}
+
+.x4 {
+	-webkit-animation: animateCloud 18s linear infinite;
+	-moz-animation: animateCloud 18s linear infinite;
+	animation: animateCloud 18s linear infinite;
+	
+	-webkit-transform: scale(0.4);
+	-moz-transform: scale(0.4);
+	transform: scale(0.4);
+}
+
+.x5 {
+	-webkit-animation: animateCloud 25s linear infinite;
+	-moz-animation: animateCloud 25s linear infinite;
+	animation: animateCloud 25s linear infinite;
+	
+	-webkit-transform: scale(0.55);
+	-moz-transform: scale(0.55);
+	transform: scale(0.55);
+}
+
+/* OBJECTS */
+
+.cloud {
+	background: #fff;
+	background: -moz-linear-gradient(top,  #fff 5%, #f1f1f1 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(5%,#fff), color-stop(100%,#f1f1f1));
+	background: -webkit-linear-gradient(top,  #fff 5%,#f1f1f1 100%);
+	background: -o-linear-gradient(top,  #fff 5%,#f1f1f1 100%);
+	background: -ms-linear-gradient(top,  #fff 5%,#f1f1f1 100%);
+	background: linear-gradient(top,  #fff 5%,#f1f1f1 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff', endColorstr='#f1f1f1',GradientType=0 );
+	
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	border-radius: 100px;
+	
+	-webkit-box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
+
+	height: 120px;
+	position: relative;
+	width: 350px;
+}
+
+.cloud:after, .cloud:before {
+    background: #fff;
+	content: '';
+	position: absolute;
+	z-indeX: -1;
+}
+
+.cloud:after {
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	border-radius: 100px;
+
+	height: 100px;
+	left: 50px;
+	top: -50px;
+	width: 100px;
+}
+
+.cloud:before {
+	-webkit-border-radius: 200px;
+	-moz-border-radius: 200px;
+	border-radius: 200px;
+
+	width: 180px;
+	height: 180px;
+	right: 50px;
+	top: -90px;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="sky">
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+    </div>
+    <div id="background-wrap">
+        <div class="x1">
+            <div class="cloud"></div>
+        </div>
+    
+        <div class="x2">
+            <div class="cloud"></div>
+        </div>
+    
+        <div class="x3">
+            <div class="cloud"></div>
+        </div>
+    
+        <div class="x4">
+            <div class="cloud"></div>
+        </div>
+    
+        <div class="x5">
+            <div class="cloud"></div>
+        </div>
+    </div>
+    <div id="root"></div>
+  </body>
+</html>

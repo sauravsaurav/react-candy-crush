@@ -1,0 +1,103 @@
+
+.box .content {
+	height: 100%;
+	display: block;
+}
+
+.box {
+	width: 300px;
+	height: 300px;
+	box-sizing: border-box;
+	padding: 15px;
+	position: relative;
+	overflow: hidden;
+	z-index:99999999999
+}
+
+.box::before {
+	content: '';
+	position: absolute;
+	width: 150%;
+	height: 150%;
+	background: repeating-linear-gradient(
+			white 0%,
+			white 7.5px,
+			dodgerblue 7.5px,
+			orange 15px,
+			white 15px,
+			white 22.5px,
+			orange 22.5px,
+			orange 30px);
+	transform: translateX(-20%) translateY(-20%) rotate(-45deg);
+	animation: animate 20s linear infinite;
+}
+
+.box .content {
+	position: relative;
+	display: block;
+	box-sizing: border-box;
+	padding: 0px;
+	text-align: center;
+	font-family: sans-serif;
+	z-index: 999999999999;
+	padding-top:30px
+}
+
+.box{
+	box-shadow: 0 0 2px deeppink,
+				0 0 5px rgba(0, 0, 0, 1),
+				inset 0 0 5px rgba(0, 0, 0, 1);
+	border-radius: 10px;
+}
+
+
+
+
+.board{
+    width : 550px;
+    height : 550px;
+    position: absolute;
+    top : 8%;
+    left : 30%;
+    background: linear-gradient(130deg, #13bbee, #2fc3dd, #5cff00) !important;
+    
+    background-size: 200% 200%;
+    -webkit-animation: Animation 5s ease infinite;
+    -moz-animation: Animation 5s ease infinite;
+    animation: Animation 5s ease infinite;
+}
+
+@-webkit-keyframes Animation {
+    0%{background-position:10% 0% !important}
+    50%{background-position:91% 100% !important}
+    100%{background-position:10% 0% !important}
+}
+@-moz-keyframes Animation {
+    0%{background-position:10% 0% !important}
+    50%{background-position:91% 100% !important}
+    100%{background-position:10% 0% !important}
+}
+@keyframes Animation { 
+    0%{background-position:10% 0% !important}
+    50%{background-position:91% 100% !important}
+    100%{background-position:10% 0% !important}
+}
+@keyframes animate {
+	from {
+		background-position: 0;
+	}
+
+	to {
+		background-position: 0 450px;
+	}
+}
+
+
+.content{
+    background: linear-gradient(#4f6173,#29166f) !important;
+    border-radius: 10px;
+	padding:0;
+	margin:0;
+	display: block;
+}
+
